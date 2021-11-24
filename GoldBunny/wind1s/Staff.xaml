@@ -10,48 +10,97 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="230"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <WrapPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <!--здесь сделать сортировку -->
-        </WrapPanel>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="btnAddStaff" Content="Добавить сотрудника" Style="{StaticResource ButOne}" Click="btnAddStaff_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" 
-                                Height="25"
-                                    CornerRadius="8"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button x:Name="btnDeleteStaff" Content="Удалить сотрудника" Style="{StaticResource ButOne}" Click="btnDeleteStaff_Click" Margin="20,0,0,0">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="150" 
-                                Height="25"
-                                    CornerRadius="8"
-                                    Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-        </StackPanel>
-        <ListView Grid.Row="1" x:Name="lvStaff" SelectionChanged="lvStaff_SelectionChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Row="1"
+                      x:Name="LvStaff"
+                      SelectionChanged="LvStaff_SelectionChanged_1">
             <ListView.View>
                 <GridView>
-                    <!--Дописать после того, как будет БД (<GridViewColumn Header="FirstName" Width="100" DisplayMemberBinding="{Binding FirstName}"-->
+                    <GridViewColumn Width="100"
+                                        Header="Номер сотрудника"
+                                        DisplayMemberBinding="{Binding IDStaff}"/>
+                    <GridViewColumn Width="100"
+                                        Header="Имя"
+                                        DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Width="150"
+                                        Header="Фамилия"
+                                        DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Width="100"
+                                        Header="Отчество"
+                                        DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Width="100"
+                                        Header="День рождения"
+                                        DisplayMemberBinding="{Binding Birthday}"/>
+                    <GridViewColumn Width="100"
+                                        Header="Email"
+                                        DisplayMemberBinding="{Binding Email}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <WrapPanel Grid.Row="3" Margin="150,10,0,0">
+            <Button x:Name="Add"
+                    Margin="0,0,20,0"
+                Height="20"
+                Width="100"
+                Content="Добавить"
+                Grid.Row="3"
+                Style="{StaticResource ButOne}"
+                Click="Add_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" Height="25"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="Edit"
+                Height="20"
+                Width="100"
+                Content="Изменить"
+                Grid.Row="3"
+                Style="{StaticResource ButOne}"
+                Click="Edit_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" Height="25"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="Delete"
+                    Margin="20,0,0,0"
+                    Height="20"
+                    Width="100"
+                    Content="Удалить"
+                    Grid.Row="3"
+                    Style="{StaticResource ButOne}"
+                    Click="Delete_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" Height="25"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </WrapPanel>
     </Grid>
 </Page>

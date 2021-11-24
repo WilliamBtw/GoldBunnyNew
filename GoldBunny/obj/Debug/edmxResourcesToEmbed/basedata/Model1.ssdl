@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище GoldBunnyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IDClient" />
+    </Key>
+    <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PetID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnosis">
+    <Key>
+      <PropertyRef Name="IDDiagnosis" />
+    </Key>
+    <Property Name="IDDiagnosis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDiagnosis" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DescriptionDiagnosis" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="IDGender" />
+    </Key>
+    <Property Name="IDGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameGender" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medcard">
+    <Key>
+      <PropertyRef Name="IDMedcard" />
+    </Key>
+    <Property Name="IDMedcard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiagnosisID" Type="int" Nullable="false" />
+    <Property Name="StartIlness" Type="date" Nullable="false" />
+    <Property Name="EndIlness" Type="date" Nullable="false" />
+    <Property Name="RecipeListID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="IDOrder" />
+    </Key>
+    <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="PetID" Type="int" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="StaffID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="IDRoom" Type="int" />
+  </EntityType>
+  <EntityType Name="Pet">
+    <Key>
+      <PropertyRef Name="IDPet" />
+    </Key>
+    <Property Name="IDPet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamePet" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypePetID" Type="int" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="IDMedcard" Type="int" />
+  </EntityType>
+  <EntityType Name="RecipeList">
+    <Key>
+      <PropertyRef Name="IDRecipeList" />
+    </Key>
+    <Property Name="IDRecipeList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameRecipe" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="IDRole" />
+    </Key>
+    <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="IDRoom" />
+    </Key>
+    <Property Name="IDRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeRoom" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberRoom" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IDService" />
+    </Key>
+    <Property Name="IDService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameService" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="IDStaff" />
+    </Key>
+    <Property Name="IDStaff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypePet">
+    <Key>
+      <PropertyRef Name="IDTypePet" />
+    </Key>
+    <Property Name="IDTypePet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTypePet" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Client__PetID__4D94879B">
+    <End Role="Pet" Type="Self.Pet" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="IDPet" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="PetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__RoleID__4E88ABD4">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="IDRole" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medcard__Diagnos__3C69FB99">
+    <End Role="Diagnosis" Type="Self.Diagnosis" Multiplicity="1" />
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnosis">
+        <PropertyRef Name="IDDiagnosis" />
+      </Principal>
+      <Dependent Role="Medcard">
+        <PropertyRef Name="DiagnosisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medcard__RecipeL__3D5E1FD2">
+    <End Role="RecipeList" Type="Self.RecipeList" Multiplicity="1" />
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RecipeList">
+        <PropertyRef Name="IDRecipeList" />
+      </Principal>
+      <Dependent Role="Medcard">
+        <PropertyRef Name="RecipeListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__ClientID__5629CD9C">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IDClient" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__PetID__571DF1D5">
+    <End Role="Pet" Type="Self.Pet" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="IDPet" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__ServiceID__5812160E">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IDService" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__StaffID__59063A47">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IDStaff" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pet__GenderID__4AB81AF0">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="IDGender" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pet__TypePetID__49C3F6B7">
+    <End Role="TypePet" Type="Self.TypePet" Multiplicity="1" />
+    <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypePet">
+        <PropertyRef Name="IDTypePet" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="TypePetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Staff__RoleID__5165187F">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="IDRole" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pet_Medcard">
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="0..1" />
+    <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medcard">
+        <PropertyRef Name="IDMedcard" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="IDMedcard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="IDRoom" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище GoldBunnyModelContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnosis" EntityType="Self.Diagnosis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medcard" EntityType="Self.Medcard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeList" EntityType="Self.RecipeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypePet" EntityType="Self.TypePet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Client__PetID__4D94879B" Association="Self.FK__Client__PetID__4D94879B">
+      <End Role="Pet" EntitySet="Pet" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__RoleID__4E88ABD4" Association="Self.FK__Client__RoleID__4E88ABD4">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medcard__Diagnos__3C69FB99" Association="Self.FK__Medcard__Diagnos__3C69FB99">
+      <End Role="Diagnosis" EntitySet="Diagnosis" />
+      <End Role="Medcard" EntitySet="Medcard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medcard__RecipeL__3D5E1FD2" Association="Self.FK__Medcard__RecipeL__3D5E1FD2">
+      <End Role="RecipeList" EntitySet="RecipeList" />
+      <End Role="Medcard" EntitySet="Medcard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__ClientID__5629CD9C" Association="Self.FK__Order__ClientID__5629CD9C">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__PetID__571DF1D5" Association="Self.FK__Order__PetID__571DF1D5">
+      <End Role="Pet" EntitySet="Pet" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__ServiceID__5812160E" Association="Self.FK__Order__ServiceID__5812160E">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__StaffID__59063A47" Association="Self.FK__Order__StaffID__59063A47">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pet__GenderID__4AB81AF0" Association="Self.FK__Pet__GenderID__4AB81AF0">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Pet" EntitySet="Pet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pet__TypePetID__49C3F6B7" Association="Self.FK__Pet__TypePetID__49C3F6B7">
+      <End Role="TypePet" EntitySet="TypePet" />
+      <End Role="Pet" EntitySet="Pet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Staff__RoleID__5165187F" Association="Self.FK__Staff__RoleID__5165187F">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pet_Medcard" Association="Self.FK_Pet_Medcard">
+      <End Role="Medcard" EntitySet="Medcard" />
+      <End Role="Pet" EntitySet="Pet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Room" Association="Self.FK_Staff_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

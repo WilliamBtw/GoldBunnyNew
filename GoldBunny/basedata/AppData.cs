@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GoldBunny.basedata
+{
+    class AppData
+    {
+        public static Staff staffSave = new Staff();
+        public static Order orderSave = new Order();
+        public static basedata.GoldBunnyEntities bd_gold = new GoldBunnyEntities();
+        public static Pet petSave = new Pet();
+        public static Medcard medcardSave = new Medcard();
+        public static Client clientSave = new Client();
+        public static Service serviceSave = new Service();
+    }
+}

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GoldBunny.basedata;
 
 namespace GoldBunny.wind1s
 {
@@ -22,7 +23,9 @@ namespace GoldBunny.wind1s
     {
         public Staff()
         {
+            GoldBunnyEntities bd_gold = new GoldBunnyEntities();
             InitializeComponent();
+            LvStaff.ItemsSource = bd_gold.Staff.ToList();
         }
 
         private void btnDeleteStaff_Click(object sender, RoutedEventArgs e)
@@ -30,12 +33,27 @@ namespace GoldBunny.wind1s
 
         }
 
-        private void lvStaff_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnAddStaff_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnAddStaff_Click(object sender, RoutedEventArgs e)
+        private void LvStaff_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
 
         }

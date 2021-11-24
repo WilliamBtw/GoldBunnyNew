@@ -102,11 +102,11 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="Graphics"
-                    Content="График работы"
+            <Button x:Name="Medcard"
+                    Content="Медкарты"
                     Grid.Column="5"
-                    Click="Graphics_Click"
-                    Style="{StaticResource ButOne}">
+                    Click="MedCard_Click"
+                    Style="{StaticResource ButOne}" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Width="100" Height="25"
@@ -174,7 +174,162 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <Frame x:Name="frmHomeMain"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="10">
+                <Button x:Name="ProfileBut"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Height="22"
+                        ToolTip="Нажмите для изменения логина или пароля"
+                        Click="ProfileBut_Click">
+                    <Button.Content>
+                        <Image Source="/pic2res/pzpz.png"/>
+                    </Button.Content>
+                </Button>
+                <Label x:Name="lab_user" 
+                       FontSize="12"
+                       FontStyle="Italic"
+                       VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1">
+                
+            </StackPanel>
+            <GroupBox Grid.Row="1">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="ClickBox"
+                                   VerticalAlignment="Center" 
+                                   Margin="5, 0, 0, 0"
+                                   Foreground="White"/>
+                    </StackPanel>
+                </GroupBox.Header>
+                <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
+                    <GroupBox Header="Режим работы" 
+                              Margin="0,10,10,10"
+                              Foreground="White">
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton x:Name="R1_1" 
+                                         GroupName="Gr" 
+                                         Content="Список"
+                                         Margin="10,10,10,0" 
+                                         IsThreeState="True" 
+                                         Checked="radiButton"
+                                         Foreground="White"/>
+                            <GroupBox x:Name="Grup" Margin="30,5,10,0">
+                                <GroupBox.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Настройка поиска"
+                                               VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <CheckBox x:Name="Check_1" 
+                                              Content="Фамилия" 
+                                              Margin="10,10,10,0" 
+                                              Click="Click_check1"
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check_2"
+                                              Content="Имя"
+                                              Margin="10,5,0,0"
+                                              Click="Click_check1"
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check_3"
+                                              Content="Мобильный тел."
+                                              Margin="10,5,0,0"
+                                              Click="Click_check1"
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check_4"
+                                              Content="Email"
+                                              Margin="10,5,10,0"
+                                              Click="Click_check1"
+                                              Foreground="White"/>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox x:Name="Grup1" Margin="30,5,0,0">
+                                <GroupBox.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Настройка списка" 
+                                                   VerticalAlignment="Center"
+                                                   Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <CheckBox x:Name="Check2_1"
+                                              Content="Фамилия"
+                                              IsChecked="True"
+                                              Margin="5,10,0,5"
+                                              
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check2_2"
+                                              Content="Имя"
+                                              IsChecked="True"
+                                              Grid.Row="1"
+                                              Margin="5,0,0,5"
+                                             
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check2_3"
+                                              Content="Отчество"
+                                              IsChecked="True"
+                                              Grid.Row="2"
+                                              Margin="5,0,0,5"
+                                              
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check2_4"
+                                              Content="Пол"
+                                              IsChecked="True"
+                                              Grid.Row="3"
+                                              Margin="5,0,0,5"
+                                              
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check2_5"
+                                              Content="Дата Рождение"
+                                              IsChecked="True"
+                                              Grid.Row="4"
+                                              Margin="5,0,0,10"
+                                             
+                                              Foreground="White"/>
+                                    <CheckBox x:Name="Check2_6"
+                                              Content="Email"
+                                              IsChecked="True"
+                                              Grid.Column="1"
+                                              Margin="0,10,0,5"
+                                              
+                                              Foreground="White"/>
+                                </Grid>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <Frame x:Name="frmHomeMain" 
+                   NavigationUIVisibility="Hidden"
+                   Grid.Column="1"
+                   Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>
