@@ -1,13 +1,13 @@
-﻿<Page x:Class="GoldBunny.wind1s.PageAddOrder"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:GoldBunny.wind1s"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="400"
-      Title="PageAddOrder">
-
+﻿<Window x:Class="GoldBunny.wind1s.WindowAddPacient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoldBunny.wind1s"
+        mc:Ignorable="d"
+        Title="WindowAddPacient" Height="450" Width="350"
+        ResizeMode="NoResize"
+        Background="#181735">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,17 +23,26 @@
                     VerticalAlignment="Center">
             <WrapPanel Margin="5"/>
             <WrapPanel Margin="5">
-                <Label Content="Номер услуги: "
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Имя питомца: "
                        Foreground="White"/>
-                <TextBox x:Name="txbIDService"
-                         Foreground="White"
+                <ComboBox x:Name="cmbNamePet"
+                         Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5">
-                <Label Content="Дата:                "
+                <Label Content="День Рождения:                "
                        Foreground="White" />
-                <TextBox x:Name="txbDateOrder"
-                         Foreground="White"
+                <TextBox x:Name="txbPetBirthday"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Номер медкарты:                "
+                       Foreground="White" />
+                <TextBox x:Name="txtMedcard"
+                         Foreground="Black"
                          Width="100"/>
             </WrapPanel>
 
@@ -43,24 +52,17 @@
                     Grid.Column="1"
                     VerticalAlignment="Center">
             <WrapPanel Margin="5">
-                <Label Content="Номер сотрудника:"
+                <Label Content="Тип питомца:"
                        Foreground="White"/>
-                <TextBox x:Name="txbIDStaff"
-                         Foreground="White"
+                <ComboBox x:Name="cmbTypePet"
+                         Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5">
-                <Label Content="Номер питомца:    "
+                <Label Content="Гендер:     "
                        Foreground="White"/>
-                <TextBox x:Name="txbAddres"
-                         Foreground="White"
-                         Width="100"/>
-            </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Номер клиента:     "
-                       Foreground="White"/>
-                <TextBox x:Name="txbIDClient"
-                         Foreground="White"
+                <ComboBox x:Name="cmbGender"
+                         Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5"/>
@@ -74,8 +76,8 @@
             <Button Style="{StaticResource ButOne}"
                     Margin="0,0,30,0"
                     Content="Save"
-                    x:Name="btnSaveOrder"
-                    Click="btnSaveOrder_Click"
+                    x:Name="btnSavePacient"
+                    Click="btnSavePacient_Click"
                     >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -90,8 +92,8 @@
             </Button>
             <Button Style="{StaticResource ButOne}"
                     Content="Cancel"
-                    x:Name="btnCancelOrder"
-                    Click="btnCancelOrder_Click" Cursor="Hand"
+                    x:Name="btnCancelPacient"
+                    Click="btnCancelPacient_Click" Cursor="Hand"
                     >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -106,4 +108,4 @@
             </Button>
         </WrapPanel>
     </Grid>
-</Page>
+</Window>

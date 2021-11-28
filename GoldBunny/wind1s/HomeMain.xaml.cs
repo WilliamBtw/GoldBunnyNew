@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GoldBunny.basedata;
+using GoldBunny.wind1s;
 
 namespace GoldBunny.wind1s
 {
@@ -21,9 +22,6 @@ namespace GoldBunny.wind1s
     public partial class HomeMain : Window
     {
         public GoldBunnyEntities bd_gold = new GoldBunnyEntities();
-        public Config config = new Config();
-        public LoginClass loginClass = new LoginClass(9);
-        public int svWiewPage = 0;
         public HomeMain()
         {
             InitializeComponent();
@@ -36,12 +34,12 @@ namespace GoldBunny.wind1s
 
         private void MedCard_Click(object sender, RoutedEventArgs e)
         {
-            frmHomeMain.Navigate(new wind1s.MedCardPage());
+            frmHomeMain.Navigate(new wind1s.PageMedcard());
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-            frmHomeMain.Navigate(new wind1s.Order());
+            frmHomeMain.Navigate(new wind1s.PageOrder());
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -54,30 +52,6 @@ namespace GoldBunny.wind1s
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void radiButton(object sender, RoutedEventArgs e)
-        {
-            RadioButton li = (sender as RadioButton);
-
-            if(li.Name == "R1_1")
-            {
-                Grup.Visibility = Visibility.Visible;
-                Grup1.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Grup.Visibility = Visibility.Collapsed;
-                Grup1.Visibility = Visibility.Collapsed;
-            }
-        }
-        private void Click_check1(object sender, RoutedEventArgs e)
-        {
-            frmHomeMain.Refresh();
-        }
-        private void ProfileBut_Click(object sender, RoutedEventArgs e)
-        {
-            //в разработке
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {

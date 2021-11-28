@@ -67,7 +67,7 @@ namespace GoldBunny.wind1s
             }
             else
             {
-                MessageBox.Show("Данные неккоректны", "Ошибка");
+                MessageBox.Show("Пользователь не найден... Упс!", "Ошибка");
             }
         }
 

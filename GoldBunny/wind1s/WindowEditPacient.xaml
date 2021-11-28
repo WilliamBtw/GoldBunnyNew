@@ -1,0 +1,111 @@
+﻿<Window x:Class="GoldBunny.wind1s.WindowEditPacient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoldBunny.wind1s"
+        mc:Ignorable="d"
+        Title="WindowEditPacient" Height="450" Width="350"
+        ResizeMode="NoResize"
+        Background="#181735">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center">
+            <WrapPanel Margin="5"/>
+            <WrapPanel Margin="5">
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Имя питомца: "
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbNamePet"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="День Рождения:                "
+                       Foreground="White" />
+                <TextBox x:Name="txbPetBirthday"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Номер медкарты:                "
+                       Foreground="White" />
+                <TextBox x:Name="txtMedcard"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center">
+            <WrapPanel Margin="5">
+                <Label Content="Тип питомца:"
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbTypePet"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Гендер:     "
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbGender"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5"/>
+
+
+        </StackPanel>
+        <WrapPanel Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Button Style="{StaticResource ButOne}"
+                    Margin="0,0,30,0"
+                    Content="Save"
+                    x:Name="btnSavePacient"
+                    Click="btnSavePacient_Click"
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Style="{StaticResource ButOne}"
+                    Content="Cancel"
+                    x:Name="btnCancelPacient"
+                    Click="btnCancelPacient_Click" Cursor="Hand"
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </WrapPanel>
+    </Grid>
+</Window>

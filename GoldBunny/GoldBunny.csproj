@@ -68,14 +68,12 @@
     <Compile Include="basedata\Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="basedata\Config.cs" />
     <Compile Include="basedata\Diagnosis.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="basedata\Gender.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="basedata\LoginClass.cs" />
     <Compile Include="basedata\Medcard.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -130,23 +128,44 @@
     <Compile Include="wind1s\HomeMain.xaml.cs">
       <DependentUpon>HomeMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="wind1s\MedCardPage.xaml.cs">
-      <DependentUpon>MedCardPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="wind1s\ModeratorMain.xaml.cs">
       <DependentUpon>ModeratorMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="wind1s\Order.xaml.cs">
-      <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
     <Compile Include="wind1s\Pacient.xaml.cs">
       <DependentUpon>Pacient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="wind1s\PageAddOrder.xaml.cs">
-      <DependentUpon>PageAddOrder.xaml</DependentUpon>
+    <Compile Include="wind1s\PageMedcard.xaml.cs">
+      <DependentUpon>PageMedcard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\PageOrder.xaml.cs">
+      <DependentUpon>PageOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\PageOrderDoctor.xaml.cs">
+      <DependentUpon>PageOrderDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\PagePacientDoctor.xaml.cs">
+      <DependentUpon>PagePacientDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="wind1s\Staff.xaml.cs">
       <DependentUpon>Staff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowAddMedcard.xaml.cs">
+      <DependentUpon>WindowAddMedcard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowAddOrder.xaml.cs">
+      <DependentUpon>WindowAddOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowAddPacient.xaml.cs">
+      <DependentUpon>WindowAddPacient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowEditMedcard.xaml.cs">
+      <DependentUpon>WindowEditMedcard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowEditOrder.xaml.cs">
+      <DependentUpon>WindowEditOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wind1s\WindowEditPacient.xaml.cs">
+      <DependentUpon>WindowEditPacient.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,15 +191,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="wind1s\MedCardPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="wind1s\ModeratorMain.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="wind1s\Order.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,11 +199,47 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="wind1s\PageAddOrder.xaml">
+    <Page Include="wind1s\PageMedcard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\PageOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\PageOrderDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\PagePacientDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wind1s\Staff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowAddMedcard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowAddOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowAddPacient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowEditMedcard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowEditOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wind1s\WindowEditPacient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

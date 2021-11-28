@@ -10,10 +10,13 @@ namespace GoldBunny.basedata
     {
         public static Staff staffSave = new Staff();
         public static Order orderSave = new Order();
-        public static basedata.GoldBunnyEntities bd_gold = new GoldBunnyEntities();
+        public static GoldBunnyEntities bd_gold = new GoldBunnyEntities();
         public static Pet petSave = new Pet();
         public static Medcard medcardSave = new Medcard();
         public static Client clientSave = new Client();
         public static Service serviceSave = new Service();
+        public static int iDOrder;
+        public static int IDPacientSave;
+        public static int IDMedcardSave;
     }
 }

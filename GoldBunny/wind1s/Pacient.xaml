@@ -5,57 +5,80 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GoldBunny.wind1s"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="900"
       Title="Pacient">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="470"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="800"/>
         </Grid.ColumnDefinitions>
         <ListView Grid.Row="1"
+                  Grid.Column="2"
+                  Margin="10,10,150,0"
                       x:Name="LvPacient"
                       SelectionChanged="lvPacient_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100"
-                                        Header="Номер питомца"
-                                        DisplayMemberBinding="{Binding IDPet}"/>
-                    <GridViewColumn Width="100"
                                         Header="Имя питомца"
                                         DisplayMemberBinding="{Binding NamePet}"/>
                     <GridViewColumn Width="150"
-                                        Header="Номер типа питомца"
-                                        DisplayMemberBinding="{Binding TypePetID}"/>
-                    <GridViewColumn Width="100"
-                                        Header="День Рождения"
+                                        Header="Тип питомца"
+                                        DisplayMemberBinding="{Binding TypePet.NameTypePet}"/>
+                    <GridViewColumn Width="180"
+                                        Header="День рождения питомца"
                                         DisplayMemberBinding="{Binding Birthday}"/>
                     <GridViewColumn Width="100"
-                                        Header="Номер гендера"
-                                        DisplayMemberBinding="{Binding GenderID}"/>
+                                        Header="Гендер питомца"
+                                        DisplayMemberBinding="{Binding Gender.NameGender}"/>
                     <GridViewColumn Width="100"
-                                        Header="Номер медкарты"
-                                        DisplayMemberBinding="{Binding IDMedcard}"/>
+                                    Header="Номер мед.карты"
+                                    DisplayMemberBinding="{Binding Medcard.IDMedcard}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <WrapPanel Grid.Row="3" Margin="150,10,0,0">
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,100,0,150">
+            <TextBlock Text="Поиск"
+                       Foreground="White"
+                       FontSize="16"/>
+            <TextBlock Text="Имя питомца"
+                       Foreground="White"
+                       FontSize="14"
+                       Margin="20,0,0,0"/>
+            <TextBox x:Name="txbPetName"
+                     Width="100"
+                     TextChanged="txbPetName_TextChanged"/>
+            <TextBlock Text="Тип питомца"
+                       Foreground="White"
+                       FontSize="14"
+                       Margin="20,0,0,0"/>
+            <TextBox x:Name="txbTypePet"
+                     Width="100"
+                     TextChanged="txbTypePet_TextChanged"/>
+            <TextBlock Text="Гендер"
+                       Foreground="White"
+                       FontSize="14"
+                       Margin="20,0,0,0"/>
+            <TextBox x:Name="txbGender"
+                     Width="100"
+                     TextChanged="txbGender_TextChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,380,0,0">
             <Button x:Name="Add"
-                    Margin="0,0,20,0"
+                    Margin="0,0,0,10"
                 Height="20"
                 Width="100"
                 Content="Добавить"
                 Grid.Row="3"
                 Style="{StaticResource ButOne}"
-                Click="Add_Click" Cursor="Hand">
+                Click="Add_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <Border Width="100" Height="25"
+                        <Border Width="100" Height="20"
                                     CornerRadius="8"
                                     Background="{TemplateBinding Background}">
                             <ContentPresenter VerticalAlignment="Center"
@@ -73,7 +96,7 @@
                 Click="Edit_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <Border Width="100" Height="25"
+                        <Border Width="100" Height="20"
                                     CornerRadius="8"
                                     Background="{TemplateBinding Background}">
                             <ContentPresenter VerticalAlignment="Center"
@@ -83,16 +106,15 @@
                 </Button.Template>
             </Button>
             <Button x:Name="Delete"
-                    Margin="20,0,0,0"
+                    Margin="0,10,0,0"
                     Height="20"
                     Width="100"
                     Content="Удалить"
-                    Grid.Row="3"
                     Style="{StaticResource ButOne}"
-                    Click="Delete_Click" Cursor="Hand">
+                    Click="Delete_Click">
                 <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="100" Height="25"
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="100" Height="20"
                                     CornerRadius="8"
                                     Background="{TemplateBinding Background}">
                             <ContentPresenter VerticalAlignment="Center"
@@ -101,6 +123,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-        </WrapPanel>
+        </StackPanel>
+
     </Grid>
 </Page>

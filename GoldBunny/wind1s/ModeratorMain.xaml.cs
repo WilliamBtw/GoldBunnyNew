@@ -38,7 +38,7 @@ namespace GoldBunny.wind1s
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-            frmHomeMain.Navigate(new wind1s.Order());
+            frmHomeMain.Navigate(new wind1s.PageOrder());
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -70,6 +70,11 @@ namespace GoldBunny.wind1s
         }
 
         private void R1_1_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TBLname_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

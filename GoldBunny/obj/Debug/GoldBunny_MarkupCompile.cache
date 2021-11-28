@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\App.xaml
-101190945713
+17708208585
 2-1581437545
-331428747936
+381481435973
 18525595989
-MainWindow.xaml;wind1s\Auth.xaml;wind1s\HighDoctor.xaml;wind1s\HomeMain.xaml;wind1s\MedCardPage.xaml;wind1s\ModeratorMain.xaml;wind1s\Order.xaml;wind1s\Pacient.xaml;wind1s\PageAddOrder.xaml;wind1s\Staff.xaml;
+MainWindow.xaml;wind1s\Auth.xaml;wind1s\HighDoctor.xaml;wind1s\HomeMain.xaml;wind1s\ModeratorMain.xaml;wind1s\Pacient.xaml;wind1s\PageMedcard.xaml;wind1s\PageOrder.xaml;wind1s\PageOrderDoctor.xaml;wind1s\PagePacientDoctor.xaml;wind1s\Staff.xaml;wind1s\WindowAddMedcard.xaml;wind1s\WindowAddOrder.xaml;wind1s\WindowAddPacient.xaml;wind1s\WindowEditMedcard.xaml;wind1s\WindowEditOrder.xaml;wind1s\WindowEditPacient.xaml;
 
 False
 

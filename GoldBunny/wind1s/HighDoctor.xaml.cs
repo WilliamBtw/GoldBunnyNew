@@ -32,34 +32,26 @@ namespace GoldBunny.wind1s
             }
         }
 
-        private void Menu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Pacient_Click(object sender, RoutedEventArgs e)
         {
-
+            frmHighDoctor.Navigate(new wind1s.PagePacientDoctor());
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-
+            frmHighDoctor.Navigate(new wind1s.PageOrderDoctor());
         }
 
-        private void ExitProfile_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Staff_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+            Application.Current.Shutdown();
+        }   
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            wind1s.Auth auth = new wind1s.Auth();
+            auth.Show();
+            this.Close();
         }
     }
 }
