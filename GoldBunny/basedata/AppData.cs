@@ -16,7 +16,7 @@ namespace GoldBunny.basedata
         public static Client clientSave = new Client();
         public static Service serviceSave = new Service();
         public static int iDOrder;
-        public static int IDPacientSave;
-        public static int IDMedcardSave;
+        public static int IDClientSave;
+        public static int IDPetSave;
     }
 }

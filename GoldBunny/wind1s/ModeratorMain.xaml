@@ -52,10 +52,10 @@
                 </Button.Template>
             </Button>
             <Button x:Name="Pacient"
-                    Content="Пациенты"
+                    Content="Клиенты"
                     Grid.Column="3"
                     Style="{StaticResource ButOne}"
-                    Click="Pacient_Click">
+                    Click="Pacient_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Width="100" Height="25"

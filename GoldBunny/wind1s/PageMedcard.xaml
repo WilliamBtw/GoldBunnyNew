@@ -19,22 +19,22 @@
         <ListView Grid.Row="1"
                   Grid.Column="2"
                   Margin="10,10,150,0"
-                      x:Name="LvMedcard"
-                      SelectionChanged="LvMedcard_SelectionChanged">
+                      x:Name="LvPet"
+                      SelectionChanged="LvPet_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100"
-                                        Header="Диагноз"
-                                        DisplayMemberBinding="{Binding Diagnosis.NameDiagnosis}"/>
                     <GridViewColumn Width="150"
-                                        Header="Начало болезни"
-                                        DisplayMemberBinding="{Binding StartIlness}"/>
+                                        Header="Имя питомца"
+                                        DisplayMemberBinding="{Binding NamePet}"/>
                     <GridViewColumn Width="180"
-                                        Header="Конец болезни"
-                                        DisplayMemberBinding="{Binding EndIlness}"/>
-                    <GridViewColumn Width="100"
-                                        Header="Рецепт лечения"
-                                        DisplayMemberBinding="{Binding RecipeList.NameRecipe}"/>
+                                        Header="Тип питомца"
+                                        DisplayMemberBinding="{Binding TypePet.NameTypePet}"/>
+                    <GridViewColumn Width="180"
+                                        Header="День рождения"
+                                        DisplayMemberBinding="{Binding Birthday}"/>
+                    <GridViewColumn Width="130"
+                                        Header="Гендер"
+                                        DisplayMemberBinding="{Binding Gender.NameGender}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -42,20 +42,13 @@
             <TextBlock Text="Поиск"
                        Foreground="White"
                        FontSize="16"/>
-            <TextBlock Text="Диагноз"
+            <TextBlock Text="Имя питомца"
                        Foreground="White"
                        FontSize="14"
                        Margin="20,0,0,0"/>
-            <TextBox x:Name="txbDiagnosis"
+            <TextBox x:Name="txtNamePet"
                      Width="100"
                      TextChanged="txbDiagnosis_TextChanged"/>
-            <TextBlock Text="Рецепт лечения"
-                       Foreground="White"
-                       FontSize="14"
-                       Margin="20,0,0,0"/>
-            <TextBox x:Name="txbRecipeList"
-                     Width="100"
-                     TextChanged="txbRecipeList_TextChanged"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,380,0,0">
             <Button x:Name="Add"

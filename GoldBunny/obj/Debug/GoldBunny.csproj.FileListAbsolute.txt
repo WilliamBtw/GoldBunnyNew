@@ -51,7 +51,6 @@ C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.Propertie
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.csproj.GenerateResource.cache
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.csproj.CoreCompileInputs.cache
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.csproj.CopyComplete
-C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.csproj.AssemblyReference.cache
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\WindowAddOrder.g.cs
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\WindowAddOrder.baml
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\WindowEditOrder.g.cs
@@ -72,3 +71,6 @@ C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\PageOrderDoc
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\PagePacientDoctor.g.cs
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\PageOrderDoctor.baml
 C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\PagePacientDoctor.baml
+C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\MessageDialog.g.cs
+C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\wind1s\MessageDialog.baml
+C:\Users\misha\source\repos\GoldBunnyNew\GoldBunny\obj\Debug\GoldBunny.csproj.AssemblyReference.cache

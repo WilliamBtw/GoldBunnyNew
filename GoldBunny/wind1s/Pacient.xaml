@@ -19,25 +19,31 @@
         <ListView Grid.Row="1"
                   Grid.Column="2"
                   Margin="10,10,150,0"
-                      x:Name="LvPacient"
-                      SelectionChanged="lvPacient_SelectionChanged">
+                      x:Name="LvClient"
+                      SelectionChanged="LvClient_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100"
-                                        Header="Имя питомца"
-                                        DisplayMemberBinding="{Binding NamePet}"/>
-                    <GridViewColumn Width="150"
-                                        Header="Тип питомца"
-                                        DisplayMemberBinding="{Binding TypePet.NameTypePet}"/>
-                    <GridViewColumn Width="180"
-                                        Header="День рождения питомца"
+                                        Header="Имя клиента"
+                                        DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Width="100"
+                                        Header="Фамилия"
+                                        DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Width="100"
+                                        Header="Отчество"
+                                        DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Width="100"
+                                        Header="День рождения"
                                         DisplayMemberBinding="{Binding Birthday}"/>
                     <GridViewColumn Width="100"
-                                        Header="Гендер питомца"
-                                        DisplayMemberBinding="{Binding Gender.NameGender}"/>
+                                    Header="Email"
+                                    DisplayMemberBinding="{Binding Email}"/>
                     <GridViewColumn Width="100"
-                                    Header="Номер мед.карты"
-                                    DisplayMemberBinding="{Binding Medcard.IDMedcard}"/>
+                                    Header="Имя питомца"
+                                    DisplayMemberBinding="{Binding Pet.NamePet}"/>
+                    <GridViewColumn Width="35"
+                                    Header="Роль"
+                                    DisplayMemberBinding="{Binding RoleID}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -45,21 +51,21 @@
             <TextBlock Text="Поиск"
                        Foreground="White"
                        FontSize="16"/>
-            <TextBlock Text="Имя питомца"
+            <TextBlock Text="Имя клиента"
                        Foreground="White"
                        FontSize="14"
                        Margin="20,0,0,0"/>
             <TextBox x:Name="txbPetName"
                      Width="100"
                      TextChanged="txbPetName_TextChanged"/>
-            <TextBlock Text="Тип питомца"
+            <TextBlock Text="Фамилия клиента"
                        Foreground="White"
                        FontSize="14"
                        Margin="20,0,0,0"/>
             <TextBox x:Name="txbTypePet"
                      Width="100"
                      TextChanged="txbTypePet_TextChanged"/>
-            <TextBlock Text="Гендер"
+            <TextBlock Text="Отчество"
                        Foreground="White"
                        FontSize="14"
                        Margin="20,0,0,0"/>

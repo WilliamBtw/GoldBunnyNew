@@ -23,22 +23,35 @@ namespace GoldBunny.wind1s
         public WindowAddMedcard()
         {
             InitializeComponent();
-            cmbDiagnosis.ItemsSource = AppData.bd_gold.Diagnosis.Select(i => i.NameDiagnosis).ToList();
-            cmbRecipeList.ItemsSource = AppData.bd_gold.RecipeList.Select(i => i.NameRecipe).ToList();            
+            cmbTypePet.ItemsSource = AppData.bd_gold.TypePet.Select(i => i.NameTypePet).ToList();
+            cmbGender.ItemsSource = AppData.bd_gold.Gender.Select(i => i.NameGender).ToList();
         }
 
         private void btnSaveMedcard_Click(object sender, RoutedEventArgs e)
         {
-            AppData.bd_gold.Medcard.Add(new basedata.Medcard
+            DateTime check;
+            if (txtNamePet.Text == "" || cmbTypePet.SelectedItem == null || cmbGender.SelectedItem == null
+                || JoinDateDatePicker.SelectedDate == null)
             {
-                IDMedcard = AppData.bd_gold.Medcard.Where(i => i.Diagnosis.NameDiagnosis == cmbDiagnosis.SelectedItem.ToString()).Select(i => i.IDMedcard).FirstOrDefault(),
-                RecipeListID = AppData.bd_gold.Medcard.Where(i => i.RecipeList.NameRecipe == cmbRecipeList.SelectedItem.ToString()).Select(i => i.IDMedcard).FirstOrDefault(),
-                StartIlness = DateTime.Parse(txtStartIlness.Text),
-                EndIlness = DateTime.Parse(txtEndIlness.Text)
-            });
-            AppData.bd_gold.SaveChanges();
-            MessageBox.Show($"Мед.карта {cmbDiagnosis} успешно добавлена!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+                MessageBox.Show("Заполните пустые поля!", "Ошибка 2", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (DateTime.TryParse(JoinDateDatePicker.Text, out check) && check > DateTime.Now)
+                {
+                MessageBox.Show("Вы ввели слишком большое значение", "Ошибка 3", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            else
+            {
+                AppData.bd_gold.Pet.Add(new basedata.Pet
+                {
+                    NamePet = txtNamePet.Text,
+                    TypePetID = AppData.bd_gold.TypePet.Where(i => i.NameTypePet == cmbTypePet.SelectedItem.ToString()).Select(i => i.IDTypePet).FirstOrDefault(),
+                    Birthday = JoinDateDatePicker.SelectedDate.Value,
+                    GenderID = AppData.bd_gold.Gender.Where(i => i.NameGender == cmbGender.SelectedItem.ToString()).Select(i => i.IDGender).FirstOrDefault()
+                });
+                AppData.bd_gold.SaveChanges();
+                MessageBox.Show($"Питомец {txtNamePet.Text} успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
 
         private void btnCancelMedcard_Click(object sender, RoutedEventArgs e)

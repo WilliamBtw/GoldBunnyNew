@@ -37,17 +37,30 @@ namespace GoldBunny.wind1s
 
         private void btnSaveOrder_Click(object sender, RoutedEventArgs e)
         {
-            AppData.bd_gold.Order.Add(new basedata.Order
+            DateTime check;
+            if (cmbClientName.SelectedItem == null || cmbNamePet.SelectedItem == null
+                || JoinDateDatePicker.SelectedDate == null || cmbServiceNameService.SelectedItem == null || cmbStaffNameStaff.SelectedItem == null)
             {
-                ServiceID = AppData.bd_gold.Service.Where(i => i.NameService == cmbServiceNameService.SelectedItem.ToString()).Select(i=>i.IDService).FirstOrDefault(),
-                PetID = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i=>i.IDPet).FirstOrDefault(),
-                ClientID = AppData.bd_gold.Client.Where(i => i.FirstName == cmbClientName.SelectedItem.ToString()).Select(i => i.IDClient).FirstOrDefault(),
-                Date = DateTime.Parse(txbDateOrder.Text),
-                StaffID = AppData.bd_gold.Staff.Where(i => i.LastName == cmbStaffNameStaff.SelectedItem.ToString()).Select(i => i.IDStaff).FirstOrDefault()
-            });
-            AppData.bd_gold.SaveChanges();
-            MessageBox.Show($"Заказ {cmbServiceNameService} успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+                MessageBox.Show("Заполните пустые поля!", "Ошибка 2", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (DateTime.TryParse(JoinDateDatePicker.Text, out check) && check > DateTime.Now)
+            {
+                MessageBox.Show("Вы ввели слишком большое значение", "Ошибка 3", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                AppData.bd_gold.Order.Add(new basedata.Order
+                {
+                    ServiceID = AppData.bd_gold.Service.Where(i => i.NameService == cmbServiceNameService.SelectedItem.ToString()).Select(i => i.IDService).FirstOrDefault(),
+                    PetID = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i => i.IDPet).FirstOrDefault(),
+                    ClientID = AppData.bd_gold.Client.Where(i => i.FirstName == cmbClientName.SelectedItem.ToString()).Select(i => i.IDClient).FirstOrDefault(),
+                    Date = JoinDateDatePicker.SelectedDate.Value,
+                    StaffID = AppData.bd_gold.Staff.Where(i => i.LastName == cmbStaffNameStaff.SelectedItem.ToString()).Select(i => i.IDStaff).FirstOrDefault()
+                });
+                AppData.bd_gold.SaveChanges();
+                MessageBox.Show($"Заказ {cmbServiceNameService} успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
     }
 }

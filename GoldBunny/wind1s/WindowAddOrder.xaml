@@ -34,9 +34,9 @@
             <WrapPanel Margin="5">
                 <Label Content="Дата:                "
                        Foreground="White" />
-                <TextBox x:Name="txbDateOrder"
-                         Foreground="Black"
-                         Width="100"/>
+                <DatePicker Height="25"
+                            Width="150"
+                            x:Name="JoinDateDatePicker"/>
             </WrapPanel>
 
         </StackPanel>

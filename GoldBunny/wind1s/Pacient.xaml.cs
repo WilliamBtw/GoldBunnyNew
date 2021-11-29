@@ -25,33 +25,28 @@ namespace GoldBunny.wind1s
         {
             GoldBunnyEntities bd_gold = new GoldBunnyEntities();
             InitializeComponent();
-            var pacient = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDPacientSave).FirstOrDefault();
-            LvPacient.ItemsSource = bd_gold.Pet.ToList();
+            var client = AppData.bd_gold.Client.Where(i => i.IDClient == AppData.IDClientSave).FirstOrDefault();
+            LvClient.ItemsSource = bd_gold.Client.ToList();
         }
-        private void lvPacient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Вы действительно хотите удалить пациента?",
-                "Удаление заказа", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Вы действительно хотите удалить клиента?",
+                "Удаление клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                var result2 = MessageBox.Show("Точно?", "Удаление пациента", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result2 = MessageBox.Show("Точно?", "Удаление клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result2 == MessageBoxResult.Yes)
                 {
-                    if (LvPacient.SelectedItem is Pet pacient)
+                    if (LvClient.SelectedItem is Client client)
                     {
-                        AppData.bd_gold.Pet.Remove(AppData.bd_gold.Pet.Where(i => i.IDPet == pacient.IDPet).FirstOrDefault());
+                        AppData.bd_gold.Client.Remove(AppData.bd_gold.Client.Where(i => i.IDClient == client.IDClient).FirstOrDefault());
                         AppData.bd_gold.SaveChanges();
-                        MessageBox.Show("Пациент успешно удалён!", "Удаление пациента", MessageBoxButton.OK, MessageBoxImage.Information);
-                        LvPacient.ItemsSource = AppData.bd_gold.Pet.ToList();
+                        MessageBox.Show("Клиент успешно удалён!", "Удаление клиента", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LvClient.ItemsSource = AppData.bd_gold.Client.ToList();
                     }
                     else
                     {
-                        MessageBox.Show("Выберите пациента из списка!", "Удаление пациента", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Выберите клиента из списка!", "Удаление клиента", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
             }
@@ -60,16 +55,16 @@ namespace GoldBunny.wind1s
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var somth = AppData.bd_gold;
-            if (LvPacient.SelectedItem is Pet pacient)
+            if (LvClient.SelectedItem is Client client)
             {
-                AppData.IDPacientSave = pacient.IDPet;
+                AppData.IDClientSave = client.IDClient;
                 WindowEditPacient winPc = new WindowEditPacient(); 
                 winPc.ShowDialog();
-                LvPacient.ItemsSource = AppData.bd_gold.Pet.ToList();
+                LvClient.ItemsSource = AppData.bd_gold.Client.ToList();
             }
             else
             {
-                MessageBox.Show("Выберите пациента из списка!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Выберите клиента из списка!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -77,25 +72,30 @@ namespace GoldBunny.wind1s
         {
             WindowAddPacient winaddpa = new WindowAddPacient();
             winaddpa.ShowDialog();
-            LvPacient.ItemsSource = AppData.bd_gold.Pet.ToList();
+            LvClient.ItemsSource = AppData.bd_gold.Client.ToList();
         }
 
         private void txbPetName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var nmPt = AppData.bd_gold.Pet.ToList();
-            LvPacient.ItemsSource = nmPt.Where(i => i.NamePet.ToLower().Contains(txbPetName.Text.ToLower()));
+            var nmPt = AppData.bd_gold.Client.ToList();
+            LvClient.ItemsSource = nmPt.Where(i => i.FirstName.ToLower().Contains(txbPetName.Text.ToLower()));
         }
 
         private void txbTypePet_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var tpPt = AppData.bd_gold.Pet.ToList();
-            LvPacient.ItemsSource = tpPt.Where(i => i.TypePet.NameTypePet.ToLower().Contains(txbTypePet.Text.ToLower()));
+            var tpPt = AppData.bd_gold.Client.ToList();
+            LvClient.ItemsSource = tpPt.Where(i => i.LastName.ToLower().Contains(txbTypePet.Text.ToLower()));
         }
 
         private void txbGender_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var gndr = AppData.bd_gold.Pet.ToList();
-            LvPacient.ItemsSource = gndr.Where(i => i.Gender.NameGender.ToLower().Contains(txbGender.Text.ToLower()));
+            var gndr = AppData.bd_gold.Client.ToList();
+            LvClient.ItemsSource = gndr.Where(i => i.Patronymic.ToLower().Contains(txbGender.Text.ToLower()));
+        }
+
+        private void LvClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

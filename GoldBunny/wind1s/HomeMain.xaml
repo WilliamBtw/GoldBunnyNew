@@ -57,7 +57,7 @@
                 </Button.Template>
             </Button>
             <Button x:Name="Pacient"
-                    Content="Пациенты"
+                    Content="Клиенты"
                     Grid.Column="3"
                     Style="{StaticResource ButOne}"
                     Click="Pacient_Click">
@@ -105,7 +105,7 @@
                 </Button.Template>
             </Button>
             <Button x:Name="Medcard"
-                    Content="Медкарты"
+                    Content="Пациенты"
                     Grid.Column="5"
                     Click="MedCard_Click"
                     Style="{StaticResource ButOne}" Cursor="Hand">

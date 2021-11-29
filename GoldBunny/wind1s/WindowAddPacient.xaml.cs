@@ -24,25 +24,37 @@ namespace GoldBunny.wind1s
         {
             InitializeComponent();
             cmbNamePet.ItemsSource = AppData.bd_gold.Pet.Select(i => i.NamePet).ToList();
-            cmbTypePet.ItemsSource = AppData.bd_gold.TypePet.Select(i => i.NameTypePet).ToList();
-            cmbGender.ItemsSource = AppData.bd_gold.Gender.Select(i => i.NameGender).ToList();
-
+            cmbRole.ItemsSource = AppData.bd_gold.Role.Select(i => i.NameRole).ToList();
         }
 
         private void btnSavePacient_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Сначала убедитесь, что вы добавили медкарту!", "Уведомление", MessageBoxButton.OKCancel, MessageBoxImage.Information);
-            AppData.bd_gold.Pet.Add(new basedata.Pet
+            DateTime check;
+            if (txtFirstName.Text == "" || txtLastName.Text == ""
+                || txtPatronymic.Text == "" || txtEmail.Text == "" || cmbNamePet.SelectedItem == null || cmbRole.SelectedItem == null)
             {
-                IDPet = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i => i.IDPet).FirstOrDefault(),
-                TypePetID = AppData.bd_gold.TypePet.Where(i => i.NameTypePet == cmbTypePet.SelectedItem.ToString()).Select(i => i.IDTypePet).FirstOrDefault(),
-                GenderID = AppData.bd_gold.Gender.Where(i => i.NameGender == cmbGender.SelectedItem.ToString()).Select(i => i.IDGender).FirstOrDefault(),
-                IDMedcard = int.Parse(txtMedcard.Text),
-                Birthday = DateTime.Parse(txbPetBirthday.Text)                
-            });
-            AppData.bd_gold.SaveChanges();
-            MessageBox.Show($"Пациент {cmbNamePet} успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+                MessageBox.Show("Заполните пустые поля!", "Ошибка 2", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (DateTime.TryParse(JoinDateDatePicker.Text, out check) && check > DateTime.Now)
+            {
+                MessageBox.Show("Вы ввели слишком большое значение", "Ошибка 3", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                AppData.bd_gold.Client.Add(new basedata.Client
+                {
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Patronymic = txtPatronymic.Text,
+                    Birthday = JoinDateDatePicker.SelectedDate.Value,
+                    Email = txtEmail.Text,
+                    PetID = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i => i.IDPet).FirstOrDefault(),
+                    RoleID = AppData.bd_gold.Role.Where(i => i.NameRole == cmbRole.SelectedItem.ToString()).Select(i => i.IDRole).FirstOrDefault()
+                });
+                AppData.bd_gold.SaveChanges();
+                MessageBox.Show($"Клиент {txtFirstName.Text} успешно добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
 
         private void btnCancelPacient_Click(object sender, RoutedEventArgs e)

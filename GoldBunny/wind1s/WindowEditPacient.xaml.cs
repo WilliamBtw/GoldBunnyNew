@@ -24,29 +24,45 @@ namespace GoldBunny.wind1s
         {
             InitializeComponent();
             cmbNamePet.ItemsSource = AppData.bd_gold.Pet.Select(i => i.NamePet).ToList();
-            cmbTypePet.ItemsSource = AppData.bd_gold.TypePet.Select(i => i.NameTypePet).ToList();
-            cmbGender.ItemsSource = AppData.bd_gold.Gender.Select(i => i.NameGender).ToList();
+            cmbRole.ItemsSource = AppData.bd_gold.Role.Select(i => i.NameRole).ToList();
 
-            var pc = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDPacientSave).FirstOrDefault();
-            cmbNamePet.SelectedItem = AppData.bd_gold.Pet.Where(i => i.IDPet == pc.IDPet).Select(i => i.NamePet).FirstOrDefault();
-            cmbTypePet.SelectedItem = AppData.bd_gold.TypePet.Where(i => i.IDTypePet == pc.TypePetID).Select(i => i.NameTypePet).FirstOrDefault();
-            cmbGender.SelectedItem = AppData.bd_gold.Gender.Where(i => i.IDGender == pc.GenderID).Select(i => i.NameGender).FirstOrDefault();
+            var pc = AppData.bd_gold.Client.Where(i => i.IDClient == AppData.IDClientSave).FirstOrDefault();
+            cmbNamePet.SelectedItem = AppData.bd_gold.Client.Where(i => i.PetID == pc.PetID).Select(i => i.Pet.NamePet).FirstOrDefault();
+            cmbRole.SelectedItem = AppData.bd_gold.Client.Where(i => i.RoleID == pc.RoleID).Select(i => i.Role.NameRole).FirstOrDefault();
             
-            txtMedcard.Text = pc.IDMedcard.ToString();
-            txbPetBirthday.Text = pc.Birthday.ToString();
+            JoinDateDatePicker.Text = pc.Birthday.ToString();
+            txtFirstName.Text = pc.FirstName;
+            txtLastName.Text = pc.LastName;
+            txtPatronymic.Text = pc.Patronymic;
+            txtEmail.Text = pc.Email;
         }
 
         private void btnSavePacient_Click(object sender, RoutedEventArgs e)
         {
-            var pc = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDPacientSave).FirstOrDefault();
-                pc.IDPet = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i => i.IDPet).FirstOrDefault();
-                pc.TypePetID = AppData.bd_gold.TypePet.Where(i => i.NameTypePet == cmbTypePet.SelectedItem.ToString()).Select(i => i.IDTypePet).FirstOrDefault();
-                pc.GenderID = AppData.bd_gold.Gender.Where(i => i.NameGender == cmbGender.SelectedItem.ToString()).Select(i => i.IDGender).FirstOrDefault();
-                pc.Birthday = DateTime.Parse(txbPetBirthday.Text);
-                pc.IDMedcard = int.Parse(txtMedcard.Text);
-            AppData.bd_gold.SaveChanges();
-            MessageBox.Show("Данные успешно сохранены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+            DateTime check;
+            if (txtFirstName.Text == "" || txtLastName.Text == ""
+                || txtPatronymic.Text == "" || txtEmail.Text == "" || cmbNamePet.SelectedItem == null || cmbRole.SelectedItem == null)
+            {
+                MessageBox.Show("Заполните пустые поля!", "Ошибка 2", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (DateTime.TryParse(JoinDateDatePicker.Text, out check) && check > DateTime.Now)
+            {
+                MessageBox.Show("Вы ввели слишком большое значение", "Ошибка 3", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                var pc = AppData.bd_gold.Client.Where(i => i.IDClient == AppData.IDClientSave).FirstOrDefault();
+                pc.FirstName = txtFirstName.Text;
+                pc.LastName = txtLastName.Text;
+                pc.Patronymic = txtPatronymic.Text;
+                pc.Email = txtEmail.Text;
+                pc.Birthday = JoinDateDatePicker.SelectedDate.Value;
+                pc.RoleID = AppData.bd_gold.Role.Where(i => i.NameRole == cmbRole.SelectedItem.ToString()).Select(i => i.IDRole).FirstOrDefault();
+                pc.PetID = AppData.bd_gold.Pet.Where(i => i.NamePet == cmbNamePet.SelectedItem.ToString()).Select(i => i.IDPet).FirstOrDefault();
+                AppData.bd_gold.SaveChanges();
+                MessageBox.Show("Данные успешно сохранены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+            }
         }
 
         private void btnCancelPacient_Click(object sender, RoutedEventArgs e)

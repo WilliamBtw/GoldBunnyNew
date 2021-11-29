@@ -24,26 +24,33 @@
             <WrapPanel Margin="5"/>
             <WrapPanel Margin="5">
             </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Имя питомца: "
+            <WrapPanel>
+                <Label Content="Имя клиента: "
                        Foreground="White"/>
-                <ComboBox x:Name="cmbNamePet"
+                <TextBox x:Name="txtFirstName"
                          Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5">
-                <Label Content="День Рождения:                "
+                <Label Content="Фамилия клиента:                "
                        Foreground="White" />
-                <TextBox x:Name="txbPetBirthday"
+                <TextBox x:Name="txtLastName"
                          Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5">
-                <Label Content="Номер медкарты:                "
+                <Label Content="Отчество клиента:                "
                        Foreground="White" />
-                <TextBox x:Name="txtMedcard"
+                <TextBox x:Name="txtPatronymic"
                          Foreground="Black"
                          Width="100"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="День рождения:                "
+                       Foreground="White" />
+                <DatePicker Height="25"
+                            Width="150"
+                            x:Name="JoinDateDatePicker"/>
             </WrapPanel>
 
         </StackPanel>
@@ -52,16 +59,23 @@
                     Grid.Column="1"
                     VerticalAlignment="Center">
             <WrapPanel Margin="5">
-                <Label Content="Тип питомца:"
-                       Foreground="White"/>
-                <ComboBox x:Name="cmbTypePet"
+                <Label Content="Email клиента:                "
+                       Foreground="White" />
+                <TextBox x:Name="txtEmail"
                          Foreground="Black"
                          Width="100"/>
             </WrapPanel>
             <WrapPanel Margin="5">
-                <Label Content="Гендер:     "
+                <Label Content="Имя питомца:"
                        Foreground="White"/>
-                <ComboBox x:Name="cmbGender"
+                <ComboBox x:Name="cmbNamePet"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Роль:        "
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbRole"
                          Foreground="Black"
                          Width="100"/>
             </WrapPanel>

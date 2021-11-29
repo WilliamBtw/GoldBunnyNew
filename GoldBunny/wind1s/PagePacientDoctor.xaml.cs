@@ -25,7 +25,7 @@ namespace GoldBunny.wind1s
         {
             GoldBunnyEntities bd_gold = new GoldBunnyEntities();
             InitializeComponent();
-            var order = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDPacientSave).FirstOrDefault();
+            var order = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDClientSave).FirstOrDefault();
             LvPacient.ItemsSource = bd_gold.Pet.ToList();
         }
         private void lvPacient_SelectionChanged(object sender, SelectionChangedEventArgs e)

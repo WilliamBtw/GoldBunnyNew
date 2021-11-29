@@ -5,8 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldBunny.wind1s"
         mc:Ignorable="d"
-        Title="WindowEditMedcard" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Background="#181735"
+        Title="WindowEditMedcard" Height="450" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center">
+            <WrapPanel Margin="5"/>
+            <WrapPanel Margin="5">
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Имя питомца:                "
+                       Foreground="White" />
+                <TextBox x:Name="txtNamePet"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel Margin="5">
+                <Label Content="Тип питомца:   "
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbTypePet"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="День рождения:                "
+                       Foreground="White" />
+                <DatePicker Height="25"
+                            Width="150"
+                            x:Name="JoinDateDatePicker"/>
+            </WrapPanel>
+
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center">
+            <WrapPanel Margin="5">
+                <Label Content="Гендер:     "
+                       Foreground="White"/>
+                <ComboBox x:Name="cmbGender"
+                         Foreground="Black"
+                         Width="100"/>
+            </WrapPanel>
+
+
+
+        </StackPanel>
+        <WrapPanel Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Button Style="{StaticResource ButOne}"
+                    Margin="0,0,30,0"
+                    Content="Save"
+                    x:Name="btnSaveMedcard"
+                    Click="btnSaveMedcard_Click"
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Style="{StaticResource ButOne}"
+                    Content="Cancel"
+                    x:Name="btnCancelMedcard"
+                    Click="btnCancelMedcard_Click" Cursor="Hand"
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </WrapPanel>
     </Grid>
 </Window>

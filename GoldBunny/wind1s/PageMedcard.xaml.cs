@@ -25,72 +25,67 @@ namespace GoldBunny.wind1s
         {
             GoldBunnyEntities bd_gold = new GoldBunnyEntities();
             InitializeComponent();
-            var medcard = AppData.bd_gold.Medcard.Where(i => i.IDMedcard == AppData.IDMedcardSave).FirstOrDefault();
-            LvMedcard.ItemsSource = bd_gold.Medcard.ToList();
-        }
-
-        private void LvMedcard_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            var medcard = AppData.bd_gold.Pet.Where(i => i.IDPet == AppData.IDPetSave).FirstOrDefault();
+            LvPet.ItemsSource = bd_gold.Pet.ToList();
         }
 
         private void txbDiagnosis_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var diagg = AppData.bd_gold.Diagnosis.ToList();
-            LvMedcard.ItemsSource = diagg.Where(i => i.NameDiagnosis.ToLower().Contains(txbDiagnosis.Text.ToLower()));
-        }
-
-        private void txbRecipeList_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var reclist = AppData.bd_gold.RecipeList.ToList();
-            LvMedcard.ItemsSource = reclist.Where(i => i.NameRecipe.ToLower().Contains(txbRecipeList.Text.ToLower()));
+            var diagg = AppData.bd_gold.Pet.ToList();
+            LvPet.ItemsSource = diagg.Where(i => i.NamePet.ToLower().Contains(txtNamePet.Text.ToLower()));
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             WindowAddMedcard winaddmed = new WindowAddMedcard();
             winaddmed.ShowDialog();
-            LvMedcard.ItemsSource = AppData.bd_gold.Medcard.ToList();
+            LvPet.ItemsSource = AppData.bd_gold.Pet.ToList();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var somth = AppData.bd_gold;
-            if (LvMedcard.SelectedItem is Medcard medcard)
+            if (LvPet.SelectedItem is Pet pet
+                )
             {
-                AppData.IDMedcardSave = medcard.IDMedcard;
+                AppData.IDPetSave = pet.IDPet;
                 WindowEditMedcard winedmed = new WindowEditMedcard();
                 winedmed.ShowDialog();
-                LvMedcard.ItemsSource = AppData.bd_gold.Medcard.ToList();
+                LvPet.ItemsSource = AppData.bd_gold.Pet.ToList();
             }
             else
             {
-                MessageBox.Show("Выберите мед.карту из списка!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Выберите питомца из списка!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Вы действительно хотите удалить мед.карту?",
-               "Удаление мед.карты", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Вы действительно хотите удалить питомца?",
+               "Удаление питомца", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                var result2 = MessageBox.Show("Точно?", "Удаление мед.карты", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result2 = MessageBox.Show("Точно?", "Удаление питомца", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result2 == MessageBoxResult.Yes)
                 {
-                    if (LvMedcard.SelectedItem is Medcard medcard)
+                    if (LvPet.SelectedItem is Pet pet)
                     {
-                        AppData.bd_gold.Medcard.Remove(AppData.bd_gold.Medcard.Where(i => i.IDMedcard == medcard.IDMedcard).FirstOrDefault());
+                        AppData.bd_gold.Pet.Remove(AppData.bd_gold.Pet.Where(i => i.IDPet == pet.IDPet).FirstOrDefault());
                         AppData.bd_gold.SaveChanges();
-                        MessageBox.Show("Мед.карта успешно удалена!", "Удаление мед.карты", MessageBoxButton.OK, MessageBoxImage.Information);
-                        LvMedcard.ItemsSource = AppData.bd_gold.Medcard.ToList();
+                        MessageBox.Show("Питомец успешно удален!", "Удаление питомца", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LvPet.ItemsSource = AppData.bd_gold.Pet.ToList();
                     }
                     else
                     {
-                        MessageBox.Show("Выберите мед.карту из списка!", "Удаление мед.карты", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Выберите питомца из списка!", "Удаление питомца", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
             }
+        }
+
+        private void LvPet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
