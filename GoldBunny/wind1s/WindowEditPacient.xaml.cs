@@ -41,7 +41,7 @@ namespace GoldBunny.wind1s
         {
             DateTime check;
             if (txtFirstName.Text == "" || txtLastName.Text == ""
-                || txtPatronymic.Text == "" || txtEmail.Text == "" || cmbNamePet.SelectedItem == null || cmbRole.SelectedItem == null)
+                || txtPatronymic.Text == "" || txtEmail.Text == "" || cmbNamePet.SelectedItem == null || cmbRole.SelectedItem == null || JoinDateDatePicker.SelectedDate == null)
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка 2", MessageBoxButton.OK, MessageBoxImage.Error);
             }
